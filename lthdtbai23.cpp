@@ -1,3 +1,11 @@
+#include<iostream>
+#include<stdio.h>
+#include<vector>
+#include<string>
+
+using namespace std;
+
+//khai bao lop doi tuong
 class MatHang
 {    
     private:
@@ -13,7 +21,30 @@ class MatHang
 //===chuong trinh chinh===
 int main()
 {   
-    
+    //khai bao bien
+    int n;
+    cout<<"Nhap vao so luong mat hang: ";
+    cin>>n;
+
+    vector<MatHang> danhSach(n);
+    float thanhTien = 0;
+
+    //nhap danh sach mat hang
+    for(int i=0;i<n;++i)
+    {
+        cout<<"Nhap mat hang thu "<<i+1<<endl;
+        danhSach[i].nhap();
+    }
+
+    //xuat danh sach va tinh tien
+    cout<<"Danh sach mat hang: \n";
+    for(int i=0;i<n;++i)
+    {
+        danhSach[i].xuat();
+        thanhTien += danhSach[i].thanhTien();
+    }
+
+    cout<<"Tong tien tat ca mat hang: "<<thanhTien;
     cout<<endl;
     return 0;
 }
@@ -21,7 +52,8 @@ int main()
 void MatHang::nhap()
 {
     cout<<"Nhap ten hang: ";
-    cin>>tenHang;
+    cin.ignore();
+    getline(cin, tenHang);
     cout<<"Nhap so luong mat hang: ";
     cin>>soLuong;
     cout<<"Nhap don gia: ";
@@ -30,9 +62,9 @@ void MatHang::nhap()
 void MatHang::xuat() 
 {
     cout<<"Ten mat hang: "<<tenHang;
-    cout<<"So luong mat hang: "<<soLuong;
-    cout<<"Don gia: "<<donGia;
-    cout<<"Thanh tien: "<<thanhTien()<<endl;
+    cout<<"\nSo luong mat hang: "<<soLuong;
+    cout<<"\nDon gia: "<<donGia;
+    cout<<"\nThanh tien: "<<thanhTien()<<endl;
 }
 float MatHang::thanhTien()
 {

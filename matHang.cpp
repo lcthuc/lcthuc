@@ -1,6 +1,5 @@
 #include<iostream>
 #include<stdio.h>
-#include<vector>
 #include<string>
 
 using namespace std;
@@ -26,7 +25,7 @@ int main()
     cout<<"Nhap vao so luong mat hang: ";
     cin>>n;
 
-    vector<MatHang> danhSach(n);
+    MatHang* danhSach = new MatHang[n];
     float thanhTien = 0;
 
     //nhap danh sach mat hang
